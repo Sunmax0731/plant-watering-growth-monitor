@@ -1,0 +1,14 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "platformType": "iot-simulator-mock",
+  "pass": true,
+  "method": "runtime-gate",
+  "manualTest": "not-run-by-codex",
+  "matchedPatterns": [
+    "simulator",
+    "mock",
+    "telemetry",
+    "device-adapter",
+    "host-adapter"
+  ]
+}

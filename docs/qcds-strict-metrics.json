@@ -27,10 +27,18 @@
   "manualTestStatus": "manual-test-not-executed-by-codex",
   "manualTestCapApplied": true,
   "platformRuntimeGate": {
-    "scope": "sensor simulator / mock watering dry-run / Web dashboard",
-    "webSmoke": "dist/web-smoke-result.json",
-    "result": "pass",
-    "method": "chrome-headless-file-screenshot"
+    "product": "plant-watering-growth-monitor",
+    "platformType": "iot-simulator-mock",
+    "pass": true,
+    "method": "runtime-gate",
+    "manualTest": "not-run-by-codex",
+    "matchedPatterns": [
+      "simulator",
+      "mock",
+      "telemetry",
+      "device-adapter",
+      "host-adapter"
+    ]
   },
   "evidence": {
     "representativeSuite": "samples/representative-suite.json",
@@ -39,5 +47,17 @@
     "releaseChecklist": "docs/release-checklist.md",
     "releaseEvidence": "docs/release-evidence.json"
   },
-  "belowAMinus": []
+  "belowAMinus": [],
+  "gradeScale": [
+    "S+",
+    "S-",
+    "A+",
+    "A-",
+    "B+",
+    "B-",
+    "C+",
+    "C-",
+    "D+",
+    "D-"
+  ]
 }
