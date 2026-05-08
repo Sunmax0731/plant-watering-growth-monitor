@@ -1,0 +1,18 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "baselineVersion": "v0.1.0-alpha.1",
+  "representativeScenarios": [
+    "happy-path",
+    "missing-required",
+    "warning",
+    "mixed-batch"
+  ],
+  "expectedValidationResult": "pass",
+  "expectedWebSmokeResult": "pass",
+  "manualTestStatus": "not-executed",
+  "releaseAssetContract": [
+    "dist/plant-watering-growth-monitor-docs.zip",
+    "docs/manual-test.md",
+    "docs/strict-manual-test-addendum.md"
+  ]
+}

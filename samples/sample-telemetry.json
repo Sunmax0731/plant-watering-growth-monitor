@@ -1,0 +1,20 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "records": [
+    {
+      "plantId": "basil-01",
+      "moisture": 42,
+      "light": 680,
+      "pumpState": "standby",
+      "accepted": true
+    },
+    {
+      "plantId": "basil-01",
+      "moisture": 18,
+      "light": 160,
+      "pumpState": "manual-lock",
+      "accepted": true,
+      "warning": true
+    }
+  ]
+}

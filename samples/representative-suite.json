@@ -1,0 +1,87 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "rank": 62,
+  "scenarios": [
+    {
+      "id": "happy-path",
+      "type": "happy-path",
+      "title": "水分しきい値の通常処理",
+      "inputs": {
+        "plantId": "basil-01",
+        "moisture": 42,
+        "light": 680,
+        "pumpState": "standby"
+      },
+      "expected": {
+        "status": "pass",
+        "accepted": 1,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "missing-required",
+      "type": "missing-required",
+      "title": "moisture不足時の停止",
+      "inputs": {
+        "plantId": "basil-01",
+        "moisture": "",
+        "light": 680,
+        "pumpState": "standby"
+      },
+      "expected": {
+        "status": "error",
+        "accepted": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "warning",
+      "type": "warning",
+      "title": "給水履歴の注意喚起",
+      "inputs": {
+        "plantId": "basil-01",
+        "moisture": 18,
+        "light": 160,
+        "pumpState": "manual-lock"
+      },
+      "flags": [
+        "needsReview"
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 1,
+        "warnings": 1
+      }
+    },
+    {
+      "id": "mixed-batch",
+      "type": "mixed-batch",
+      "title": "成長メモを含む混在バッチ",
+      "items": [
+        {
+          "plantId": "basil-01",
+          "moisture": 42,
+          "light": 680,
+          "pumpState": "standby"
+        },
+        {
+          "plantId": "basil-01",
+          "moisture": "",
+          "light": 680,
+          "pumpState": "standby"
+        },
+        {
+          "plantId": "basil-01",
+          "moisture": 18,
+          "light": 160,
+          "pumpState": "manual-lock"
+        }
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 2,
+        "warnings": 2
+      }
+    }
+  ]
+}
