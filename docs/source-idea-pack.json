@@ -1,0 +1,52 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "rank": 62,
+  "tier": "P3",
+  "score": 51,
+  "domain": "IoT",
+  "ideaNo": 5,
+  "ideaName": "植物自動給水・成長観察システム",
+  "publicTarget": "GitHub Release / 自宅LAN",
+  "formalRepoReadmeBeforeStart": "missing",
+  "nonPickupPrioritizedIdeas": {
+    "path": "D:/AI/IDEAS/NON_PICKUP_PRIORITIZED_IDEAS.md",
+    "rowBasis": "Rank 62 priority-list row, not Idea No order",
+    "note": "Priority table Japanese text was mojibake, so normalized idea name comes from ZIP metadata."
+  },
+  "lookup": {
+    "exactCreatedIdeaFolder": "D:/AI/IoT/created_idea_005_plant-watering-growth-monitor",
+    "exactCreatedIdeaFolderExists": true,
+    "exactZipFile": "D:/AI/IoT/created_idea_005_plant-watering-growth-monitor/idea_005_plant-watering-growth-monitor.zip",
+    "exactZipFileExists": true,
+    "fallbackUsed": false,
+    "fallbackSearches": []
+  },
+  "zipMetadata": {
+    "domain": "IoT",
+    "no": 5,
+    "idea": "植物自動給水・成長観察システム",
+    "repositoryName": "plant-watering-growth-monitor",
+    "zipFile": "idea_005_plant-watering-growth-monitor.zip",
+    "repositoryNameMatches": true
+  },
+  "requiredZipDocuments": {
+    "metadata.json": true,
+    "START_PROMPT.md": true,
+    "README.md": true,
+    "01_REQUIREMENTS.md": true,
+    "02_SPECIFICATION.md": true,
+    "03_DESIGN.md": true,
+    "04_IMPLEMENTATION_PLAN.md": true,
+    "05_TEST_PLAN.md": true,
+    "06_RELEASE_CHECKLIST.md": true
+  },
+  "domainDocs": [
+    "D:/AI/IDEAS/IoT/Design.md",
+    "D:/AI/IDEAS/IoT/Architecture.md",
+    "D:/AI/IDEAS/IoT/AGENTS.md",
+    "D:/AI/IDEAS/IoT/SKILL.md",
+    "D:/AI/IoT/AGENTS.md",
+    "D:/AI/IoT/SKILL.md"
+  ],
+  "reconstructionPolicy": "Formal docs are regenerated in readable Japanese from NON PICKUP row, ZIP metadata, and domain docs; mojibake text is not copied."
+}
