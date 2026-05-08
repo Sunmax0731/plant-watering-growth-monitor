@@ -1,30 +1,6 @@
-# Post-MVP ロードマップ
+# Post-MVPロードマップ
 
-対象: 植物自動給水・成長観察システム (Rank 62, IoT No.5)
-
-## 方針
-
-実機なしで検証できる simulator / mock device / CLI / Web dashboard / sample telemetry を境界にし、security/privacy とLAN安全性を整理します。
-
-## 根拠
-
-- NON PICKUP 優先表 Rank 62
-- Source ZIP metadata: 植物自動給水・成長観察システム
-- ドメインDesign / Architecture / AGENTS / SKILL
-
-## 実行
-
-
-作業ディレクトリ: `D:\AI\IoT\plant-watering-growth-monitor`
-
-```powershell
-npm test
-npm run cli
-```
-
-
-QCDS は Quality、Cost、Delivery、Satisfaction と定義し、S+ / S- / A+ / A- / B+ / B- / C+ / C- / D+ / D- の10段階で評価します。手動テストはCodex側では未実施のため、S+は付けません。
-
-## 次アクション
-
-ユーザー手動テスト後、結果をrelease evidenceとpost-MVP roadmapへ反映します。
+1. 実データ編集フォームと保存形式を追加する。
+2. 手動テスト結果を反映し、代表シナリオを増やす。
+3. GitHub Release / 自宅LAN 向けの公開ページまたは配布パッケージを整える。
+4. 競合比較で不足したUI、教材、ゲームバランスをIssue化する。

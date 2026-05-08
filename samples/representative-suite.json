@@ -5,12 +5,12 @@
     {
       "id": "happy-path",
       "type": "happy-path",
-      "title": "水分しきい値の通常処理",
+      "title": "植物自動給水・成長観察システムの通常フロー",
       "inputs": {
-        "plantId": "basil-01",
-        "moisture": 42,
-        "light": 680,
-        "pumpState": "standby"
+        "soilMoisture": 42,
+        "tankLevel": "normal",
+        "growthNote": "new-leaf",
+        "wateringMode": "dry-run"
       },
       "expected": {
         "status": "pass",
@@ -21,12 +21,12 @@
     {
       "id": "missing-required",
       "type": "missing-required",
-      "title": "moisture不足時の停止",
+      "title": "soilMoisture不足時の停止",
       "inputs": {
-        "plantId": "basil-01",
-        "moisture": "",
-        "light": 680,
-        "pumpState": "standby"
+        "soilMoisture": "",
+        "tankLevel": "normal",
+        "growthNote": "new-leaf",
+        "wateringMode": "dry-run"
       },
       "expected": {
         "status": "error",
@@ -37,12 +37,12 @@
     {
       "id": "warning",
       "type": "warning",
-      "title": "給水履歴の注意喚起",
+      "title": "給水ロック時の安全確認",
       "inputs": {
-        "plantId": "basil-01",
-        "moisture": 18,
-        "light": 160,
-        "pumpState": "manual-lock"
+        "soilMoisture": "low",
+        "tankLevel": "low",
+        "growthNote": "wilting",
+        "wateringMode": "manual-lock"
       },
       "flags": [
         "needsReview"
@@ -56,25 +56,25 @@
     {
       "id": "mixed-batch",
       "type": "mixed-batch",
-      "title": "成長メモを含む混在バッチ",
+      "title": "正常・不足・警告を含む混在バッチ",
       "items": [
         {
-          "plantId": "basil-01",
-          "moisture": 42,
-          "light": 680,
-          "pumpState": "standby"
+          "soilMoisture": 42,
+          "tankLevel": "normal",
+          "growthNote": "new-leaf",
+          "wateringMode": "dry-run"
         },
         {
-          "plantId": "basil-01",
-          "moisture": "",
-          "light": 680,
-          "pumpState": "standby"
+          "soilMoisture": "",
+          "tankLevel": "normal",
+          "growthNote": "new-leaf",
+          "wateringMode": "dry-run"
         },
         {
-          "plantId": "basil-01",
-          "moisture": 18,
-          "light": 160,
-          "pumpState": "manual-lock"
+          "soilMoisture": "low",
+          "tankLevel": "low",
+          "growthNote": "wilting",
+          "wateringMode": "manual-lock"
         }
       ],
       "expected": {

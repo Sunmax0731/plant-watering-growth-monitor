@@ -1,1 +1,1 @@
-export function acceptTelemetry(packet) { return { accepted: Boolean(packet && packet.payload), privacy: "local-only", networkBoundary: "home-lan-or-static-demo" }; }
+export function buildTelemetryHostPacket(deviceReading) { return { host: 'local-dashboard', safetyMode: 'dry-run', deviceReading }; }

@@ -1,10 +1,6 @@
 # Security / Privacy チェックリスト
 
-対象: 植物自動給水・成長観察システム (Rank 62, IoT No.5)
-
-- [x] 外部APIキー不要
-- [x] npm依存なし
-- [x] sample data は匿名・架空
-- [x] release evidence にトークンやローカル秘密情報を含めない
-- [x] 実機制御はsimulator/mock deviceまでで危険動作を自動実行しない
-- [ ] ユーザー環境での手動確認
+- [x] 外部API、個人情報送信、認証情報保存を行わない。
+- [x] 実アクチュエータ制御は dry-run のみ。
+- [x] release asset に秘密情報を含めない。
+- [x] 手動テスト時に実データを入れる場合はサンプルと分離する。

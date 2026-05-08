@@ -1,20 +1,18 @@
 {
   "product": "plant-watering-growth-monitor",
-  "records": [
+  "actuatorPolicy": "dry-run-only",
+  "samples": [
     {
-      "plantId": "basil-01",
-      "moisture": 42,
-      "light": 680,
-      "pumpState": "standby",
-      "accepted": true
+      "soilMoisture": 42,
+      "tankLevel": "normal",
+      "growthNote": "new-leaf",
+      "wateringMode": "dry-run"
     },
     {
-      "plantId": "basil-01",
-      "moisture": 18,
-      "light": 160,
-      "pumpState": "manual-lock",
-      "accepted": true,
-      "warning": true
+      "soilMoisture": "low",
+      "tankLevel": "low",
+      "growthNote": "wilting",
+      "wateringMode": "manual-lock"
     }
   ]
 }

@@ -6,48 +6,50 @@ export const product = {
   "score": 51,
   "ideaNo": 5,
   "ideaName": "植物自動給水・成長観察システム",
-  "field": "植物育成・自動給水",
+  "field": "植物観察IoT",
   "publicTarget": "GitHub Release / 自宅LAN",
-  "overview": "植物ごとの土壌水分、温湿度、照度、給水履歴、備蓄状態を記録し、ポンプやバルブで自動給水する。",
-  "problem": "植物の水やり、環境変化、備蓄確認が記憶頼りになり、乾燥、過湿、病害を見逃しやすい。",
-  "differentiation": "水分センサー、給水制御、カメラ観察、育成ログ、手動お世話を家庭内IoTカードにまとめる。",
-  "audience": "家庭内LANで植物の世話を安全に記録したい個人ユーザー",
+  "platformScope": "sensor simulator / mock watering dry-run / Web dashboard",
+  "overview": "土壌水分、タンク残量、観察メモを模擬テレメトリで扱い、給水判断を安全にレビューできる監視ダッシュボード。",
+  "problem": "自動給水は誤作動時の影響が大きく、実機なしで安全境界と長期観察の判断を試す場が必要。",
+  "differentiation": "給水を直接実行せず mock device と dry-run 判定に限定し、安全レビューを優先する。",
+  "audience": "家庭菜園ユーザー、IoT試作担当、長期観察教材担当",
   "requiredInputs": [
-    "plantId",
-    "moisture",
-    "light",
-    "pumpState"
+    "soilMoisture",
+    "tankLevel",
+    "growthNote",
+    "wateringMode"
   ],
   "modules": [
     "simulator",
-    "device-adapter",
-    "host-adapter",
-    "web-dashboard"
+    "mock-device",
+    "telemetry-host",
+    "web-dashboard",
+    "safety-validator"
   ],
-  "accent": "#4f8d3a",
-  "secondary": "#2a9d8f",
+  "accent": "#16a34a",
+  "secondary": "#365314",
   "scenarioNouns": [
-    "水分しきい値",
-    "給水履歴",
-    "成長メモ"
+    "土壌水分",
+    "タンク残量",
+    "観察メモ"
   ]
 };
 
 export function evaluateScenario(scenario) {
-  if (scenario.type === "mixed-batch") {
-    const results = (scenario.items || []).map((inputs, index) => evaluateScenario({ id: scenario.id + "-" + index, inputs, flags: index === 2 ? ["needsReview"] : [] }));
-    const accepted = results.filter((r) => r.status !== "error").length;
-    const warnings = results.filter((r) => r.status !== "pass").length;
-    return { id: scenario.id, status: warnings ? "warning" : "pass", accepted, warnings, missing: results.flatMap((r) => r.missing), score: warnings ? 78 : 96 };
+  if (scenario.type === 'mixed-batch') {
+    const results = (scenario.items || []).map((inputs, index) => evaluateScenario({ id: scenario.id + '-' + index, inputs, flags: index === 2 ? ['needsReview'] : [] }));
+    const accepted = results.filter((result) => result.status !== 'error').length;
+    const warnings = results.filter((result) => result.status !== 'pass').length;
+    return { id: scenario.id, status: warnings ? 'warning' : 'pass', accepted, warnings, missing: results.flatMap((result) => result.missing), score: warnings ? 78 : 96 };
   }
   const inputs = scenario.inputs || {};
-  const missing = product.requiredInputs.filter((key) => inputs[key] === undefined || inputs[key] === null || inputs[key] === "");
-  if (missing.length) return { id: scenario.id, status: "error", accepted: 0, warnings: 0, missing, score: 0 };
-  const risky = Object.values(inputs).some((v) => /stale|low|noisy|manual-lock|large-water-change|late-brake|unknown/i.test(String(v)));
-  const warnings = (scenario.flags || []).includes("needsReview") || risky ? 1 : 0;
-  return { id: scenario.id, status: warnings ? "warning" : "pass", accepted: 1, warnings, missing: [], score: warnings ? 86 : 96 };
+  const missing = product.requiredInputs.filter((key) => inputs[key] === undefined || inputs[key] === null || inputs[key] === '');
+  if (missing.length) return { id: scenario.id, status: 'error', accepted: 0, warnings: 0, missing, score: 0 };
+  const risky = Object.values(inputs).some((value) => /stale|low|noisy|manual-lock|large-water-change|late-brake|unknown|overflow|rush|storm|fatigue|unstable|crowded|high/i.test(String(value)));
+  const warnings = (scenario.flags || []).includes('needsReview') || risky ? 1 : 0;
+  return { id: scenario.id, status: warnings ? 'warning' : 'pass', accepted: 1, warnings, missing: [], score: warnings ? 86 : 96 };
 }
 
 export function summarizeProduct() {
-  return { name: product.ideaName, repo: product.repo, releaseTarget: product.publicTarget, responsibilities: product.modules, requiredInputs: product.requiredInputs };
+  return { name: product.ideaName, repo: product.repo, domain: product.domain, releaseTarget: product.publicTarget, platformScope: product.platformScope, responsibilities: product.modules, requiredInputs: product.requiredInputs };
 }

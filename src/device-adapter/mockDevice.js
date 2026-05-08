@@ -1,1 +1,1 @@
-export function createMockDevice(id) { return { id, connect: () => ({ connected: true, mode: "simulator" }), read: () => ({ id, safeMode: true, note: "mock device never actuates physical hardware" }) }; }
+export function readMockDevice(sample) { return { source: 'mock-device', actuatorEnabled: false, telemetry: sample }; }

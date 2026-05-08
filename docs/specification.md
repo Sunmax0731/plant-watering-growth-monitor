@@ -1,17 +1,17 @@
 # 仕様
 
-対象: 植物自動給水・成長観察システム (Rank 62, IoT No.5)
+- 名称: 植物自動給水・成長観察システム
+- Repo: plant-watering-growth-monitor
+- Closed alpha platform: sensor simulator / mock watering dry-run / Web dashboard
+- 主な公開先: GitHub Release / 自宅LAN
 
-| 入力 | 用途 |
-| plantId | 植物自動給水・成長観察システム の評価、表示、レポートに必要 |
-| moisture | 植物自動給水・成長観察システム の評価、表示、レポートに必要 |
-| light | 植物自動給水・成長観察システム の評価、表示、レポートに必要 |
-| pumpState | 植物自動給水・成長観察システム の評価、表示、レポートに必要 |
+## 入力
 
-## 出力
+- `soilMoisture`
+- `tankLevel`
+- `growthNote`
+- `wateringMode`
 
-- `dist/validation-result.json`
-- `dist/web-smoke-result.json`
-- `docs/qcds-strict-metrics.json`
-- `docs/qcds-regression-baseline.json`
-- `dist/plant-watering-growth-monitor-docs.zip`
+## 主要機能
+
+代表シナリオ評価、Web表示、CLI評価、docs / QCDS / release evidence 生成。

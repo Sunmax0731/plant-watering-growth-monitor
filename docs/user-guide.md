@@ -1,30 +1,8 @@
 # ユーザーガイド
 
-対象: 植物自動給水・成長観察システム (Rank 62, IoT No.5)
+1. `index.html` を開く。
+2. 左側の代表シナリオを選ぶ。
+3. 中央のcanvasと結果パネルで状態を確認する。
+4. 警告またはエラーの場合は入力不足、ノイズ、更新確認、リスク条件を見直す。
 
-## 方針
-
-実機なしで検証できる simulator / mock device / CLI / Web dashboard / sample telemetry を境界にし、security/privacy とLAN安全性を整理します。
-
-## 根拠
-
-- NON PICKUP 優先表 Rank 62
-- Source ZIP metadata: 植物自動給水・成長観察システム
-- ドメインDesign / Architecture / AGENTS / SKILL
-
-## 実行
-
-
-作業ディレクトリ: `D:\AI\IoT\plant-watering-growth-monitor`
-
-```powershell
-npm test
-npm run cli
-```
-
-
-QCDS は Quality、Cost、Delivery、Satisfaction と定義し、S+ / S- / A+ / A- / B+ / B- / C+ / C- / D+ / D- の10段階で評価します。手動テストはCodex側では未実施のため、S+は付けません。
-
-## 次アクション
-
-ユーザー手動テスト後、結果をrelease evidenceとpost-MVP roadmapへ反映します。
+この closed alpha は sensor simulator / mock watering dry-run / Web dashboard の確認を目的とします。

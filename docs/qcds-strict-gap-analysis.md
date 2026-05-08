@@ -1,15 +1,17 @@
-# QCDS 厳格ギャップ分析
+# QCDS厳格ギャップ分析
 
-対象: 植物自動給水・成長観察システム (Rank 62, IoT No.5)
+## 発覚した齟齬
 
-## A- 未満の観点
+- 以前のQCDSは docs とZIPの存在に寄り、対象プラットフォームでの起動確認が弱かった。
+- gradeに定義外の `A` が混入しても失敗しなかった。
+- created_idea由来の文字化けを正式成果物へ残す余地があった。
 
-ありません。
+## 対応
 
-## 残る制約
+- Chrome headless smoke を `npm test` に組み込み、platform runtime gate をQCDSの前提にした。
+- QCDS grade を10段階スケールで機械検証する。
+- 文字化け検査を主要ファイルへ拡大した。
 
-手動テストはCodex側では未実施です。実機接続とLAN障害復旧はユーザー確認後に追加評価します。
+## A-未満の観点
 
-## 改善済み
-
-representative suite、strict metrics、regression baseline、manual test addendum、release evidenceを整備しました。
+現時点ではありません。手動テストは未実施のため、SatisfactionはA-に抑えています。
