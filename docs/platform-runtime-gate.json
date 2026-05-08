@@ -1,0 +1,11 @@
+{
+  "product": "plant-watering-growth-monitor",
+  "title": "植物自動給水・成長観察システム",
+  "domain": "IoT",
+  "ideaNo": 5,
+  "platformType": "iot-simulator-mock",
+  "expectedPublicTarget": "GitHub Release / 自宅LAN",
+  "browser": null,
+  "android": null,
+  "evidence": "dist/platform-runtime-gate-result.json"
+}
